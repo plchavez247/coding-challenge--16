@@ -52,4 +52,9 @@ function displayProducts(products) {
 
         productContainer.appendChild(productElement);//Appending elements to the container
     })
+};
+
+//Task 5: Reusable Error Handler
+function handleError(error) {
+    console.error("An error has occurred:", error.message);// creating a handleError function that logs an error message
 }
