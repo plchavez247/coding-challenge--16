@@ -31,3 +31,25 @@ async function fetchProductAsync(){
         handleError(error)
     }
 }
+
+//Task 4: Display the Products
+function displayProducts(products) {
+    const productContainer = document.getElementById('product-container');//selecting product-container
+    productContainer.innerHTML= ''
+    
+    products.slice(0.5).forEach((product, index) =>{
+        const{name, price} = product.fields;
+        const imageUrl = product.fields.image[0].url;//looping thought the first 5 products
+
+        const productElement = document.createElement('div');
+        productElement.classList.add('product');
+        productElement.innerHTML= `
+        <img src="${imageUrl}" alt ="${name}" class="product-img">
+        <div class="product-info">
+        <h3 class = "product-name">${name}</h3>
+        <p class="product-price">$$${price}</p>
+        </div>`;//creating HTML elements to show each product's name, price, and image
+
+        productContainer.appendChild(productElement);//Appending elements to the container
+    })
+}
