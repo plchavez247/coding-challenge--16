@@ -21,7 +21,7 @@ function fetchProductsThen(){
 //Task 3: Fetch products with async/await
 async function fetchProductsAsync(){
     try {
-        const response = await fetch('https://www.course-api.com/javascript-store-products')
+        const response = await fetch(BASE_URL);
         if (!response.ok){
             throw new Error('Failed to fetch product data')
         }
@@ -47,7 +47,7 @@ function displayProducts(products) {
         <img src="${imageUrl}" alt ="${name}" class="product-img">
         <div class="product-info">
         <h3 class = "product-name">${name}</h3>
-        <p class="product-price">$${price}</p>
+        <p class="product-price">$${(price / 100).toFixed(2)}</p>
         </div>`;//creating HTML elements to show each product's name, price, and image
 
         productContainer.appendChild(productElement);//Appending elements to the container
