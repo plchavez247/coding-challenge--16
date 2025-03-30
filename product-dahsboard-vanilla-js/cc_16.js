@@ -9,8 +9,8 @@ function fetchProductsThen(){
         return response.json();//using then to give error if response is not ok
     })
     .then(data=> {
-        data.forEach(data => {
-            console.log(product.field.name);
+        data.forEach(product => {
+            console.log(product.fields.name);
         });//using .then to log the product name to the console
     })
     .catch(error =>{
@@ -19,7 +19,7 @@ function fetchProductsThen(){
 }
 
 //Task 3: Fetch products with async/await
-async function fetchProductAsync(){
+async function fetchProductsAsync(){
     try {
         const response = await fetch('https://www.course-api.com/javascript-store-products')
         if (!response.ok){
@@ -37,7 +37,7 @@ function displayProducts(products) {
     const productContainer = document.getElementById('product-container');//selecting product-container
     productContainer.innerHTML= ''
     
-    products.slice(0.5).forEach((product, index) =>{
+    products.slice(0,5).forEach((product, index) =>{
         const{name, price} = product.fields;
         const imageUrl = product.fields.image[0].url;//looping thought the first 5 products
 
@@ -58,3 +58,7 @@ function displayProducts(products) {
 function handleError(error) {
     console.error("An error has occurred:", error.message);// creating a handleError function that logs an error message
 }
+
+//Task 6: Call your Fetch Functions
+fetchProductsThen();
+fetchProductsAsync();
