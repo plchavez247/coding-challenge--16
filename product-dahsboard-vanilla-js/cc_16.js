@@ -47,7 +47,7 @@ function displayProducts(products) {
         <img src="${imageUrl}" alt ="${name}" class="product-img">
         <div class="product-info">
         <h3 class = "product-name">${name}</h3>
-        <p class="product-price">$$${price}</p>
+        <p class="product-price">$${price}</p>
         </div>`;//creating HTML elements to show each product's name, price, and image
 
         productContainer.appendChild(productElement);//Appending elements to the container
