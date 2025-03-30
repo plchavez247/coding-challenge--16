@@ -41,14 +41,16 @@ function displayProducts(products) {
         const{name, price} = product.fields;
         const imageUrl = product.fields.image[0].url;//looping thought the first 5 products
 
+        const formattedPrice = price>= 1000 ? (price/100).toFixed(2) : price.toFixed(2);
         const productElement = document.createElement('div');
         productElement.classList.add('product');
         productElement.innerHTML= `
         <img src="${imageUrl}" alt ="${name}" class="product-img">
         <div class="product-info">
         <h3 class = "product-name">${name}</h3>
-        <p class="product-price">$${(price / 100).toFixed(2)}</p>
+        <p class="product-price">$${formattedPrice}</p>
         </div>`;//creating HTML elements to show each product's name, price, and image
+
 
         productContainer.appendChild(productElement);//Appending elements to the container
     })
